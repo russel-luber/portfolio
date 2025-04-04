@@ -20,6 +20,18 @@
 
     <main>
         <h1>Contact Page</h1>
+        <form action="mailto:rluber@ucsd.edu" method="POST" enctype="text/plain">
+            <label for="email">Your Email Address:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" required>
+
+            <label for="body">Message:</label>
+            <textarea name="body" id="body" rows="4" cols="50" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
     </main>
 </body>
 </html>
