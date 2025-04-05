@@ -1,6 +1,113 @@
+/* Default body styles */
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
+  font: 100%/1.5 system-ui;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Center the text on the homepage */
+.home-page main {
+  text-align: center; /* This will center the text only on the homepage */
+}
+
+/* Other page styles for non-home pages will not be affected by this */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.responsive-image {
+  width: 100%;         /* Makes the image take up 100% of its container */
+  max-width: 600px;    /* Ensures the image doesn't get too large */
+  height: auto;        /* Maintains the aspect ratio */
+  object-fit: cover;   /* Ensures the image covers the area appropriately */
+}
+
+/* Navigation styling (unchanged) */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Form and content layout */
+form {
+  text-align: left;        /* Ensures the form text is left-aligned */
+  max-width: 600px;        /* Prevents the form from stretching too wide */
+  margin: 0 auto;          /* Centers the form horizontally */
+}
+
+.form-group {
+  margin-bottom: 15px;     /* Adds space between form elements */
+}
+
+label {
+  display: block;          /* Makes labels block-level elements */
+  margin-bottom: 5px;      /* Adds space below labels */
+}
+
+input, textarea {
+  width: 100%;             /* Makes form fields responsive */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;  /* Smaller font size for mobile screens */
+  }
+
+  h1 {
+    font-size: 2em;  /* Adjusts the size of headings for small screens */
+  }
+
+  nav ul {
+    flex-direction: column; /* Stacks the navigation items vertically */
+    align-items: center;    /* Centers the navbar items */
+  }
+
+  nav ul li {
+    margin: 5px 0;        /* Adjusts space between the navbar items */
+  }
+
+  .container {
+    padding: 10px;       /* Less padding on smaller screens */
+  }
+
+  form {
+    width: 90%;         /* Adjust form width to 90% on smaller screens */
+  }
 }

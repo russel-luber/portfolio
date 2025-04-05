@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="..style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
@@ -18,17 +18,23 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container">
         <h1>Contact Page</h1>
         <form action="mailto:rluber@ucsd.edu" method="POST" enctype="text/plain">
-            <label for="email">Your Email Address:</label>
-            <input type="email" name="email" id="email" required>
+            <div class="form-group">
+                <label for="email">Your Email Address:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
 
-            <label for="subject">Subject:</label>
-            <input type="text" name="subject" id="subject" required>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+            </div>
 
-            <label for="body">Message:</label>
-            <textarea name="body" id="body" rows="4" cols="50" required></textarea>
+            <div class="form-group">
+                <label for="body">Message:</label>
+                <textarea name="body" id="body" rows="4" cols="50" required></textarea>
+            </div>
 
             <button type="submit">Send Message</button>
         </form>
