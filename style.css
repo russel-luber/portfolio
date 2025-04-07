@@ -89,6 +89,7 @@ button:hover {
   body {
     font-size: 14px;  /* Smaller font size for mobile screens */
     max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
   }
 
   h1 {
