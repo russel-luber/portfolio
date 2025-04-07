@@ -64,11 +64,12 @@ nav ul li a:hover {
 
 /* Form and content layout */
 form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
   text-align: left;        /* Ensures the form text is left-aligned */
   max-width: 600px;        /* Prevents the form from stretching too wide */
   margin: 0 auto;          /* Centers the form horizontally */
-  grid-template-columns: auto 1fr;
-  gap: 1em;
 }
 
 .form-group {
@@ -78,6 +79,7 @@ form {
 label {
   display: block;          /* Makes labels block-level elements */
   margin-bottom: 5px;      /* Adds space below labels */
+  grid-column: 1;
 }
 
 input, textarea {
@@ -86,6 +88,7 @@ input, textarea {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  grid-column: 2;
 }
 
 button {
