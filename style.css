@@ -67,6 +67,8 @@ form {
   text-align: left;        /* Ensures the form text is left-aligned */
   max-width: 600px;        /* Prevents the form from stretching too wide */
   margin: 0 auto;          /* Centers the form horizontally */
+  grid-template-columns: auto 1fr;
+  gap: 1em;
 }
 
 .form-group {
