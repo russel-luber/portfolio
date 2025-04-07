@@ -4,6 +4,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
 }
 
 /* Center the text on the homepage */
@@ -14,7 +16,7 @@ body {
 /* Other page styles for non-home pages will not be affected by this */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100ch;
   margin: 0 auto;
   padding: 20px;
 }
