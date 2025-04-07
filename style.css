@@ -33,20 +33,33 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: space-around;
-  background-color: #f0f0f0;
-  padding: 10px 0;
+  display: contents;
 }
 
 nav ul li {
   margin: 0 10px;
 }
 
+:root {
+  --color-accent: #FF5733; /* Adds an accent color under the link when hovered */
+}
+
 nav ul li a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  flex: 1;
+  text-align: center;
+  padding: 0.5em;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.current {
+  border-bottom: 3px solid var(--color-accent);  /* Accent color for the current page link */
+  padding-bottom: 0.5em;  /* Adjust padding to prevent height increase */
 }
 
 /* Form and content layout */
