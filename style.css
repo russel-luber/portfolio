@@ -75,6 +75,7 @@ form {
 }
 
 .form-group {
+  display: contents;
   margin-bottom: 15px;     /* Adds space between form elements */
 }
 
@@ -90,10 +91,11 @@ input, textarea {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  grid-column: 2;
+  grid-column: 1 / -1;
 }
 
-button {
+form button {
+  width: 100%;
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
@@ -102,7 +104,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+form button:hover {
   background-color: #555;
 }
 
