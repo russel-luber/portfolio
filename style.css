@@ -102,6 +102,7 @@ form button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  grid-column: 1 / -1;
 }
 
 form button:hover {
