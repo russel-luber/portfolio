@@ -136,5 +136,21 @@ form button:hover {
 
   form {
     width: 90%;         /* Adjust form width to 90% on smaller screens */
+    padding: 20px;
   }
+
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+  }
+
+  form button {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
 }
