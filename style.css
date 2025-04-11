@@ -109,6 +109,14 @@ form button:hover {
   background-color: #555;
 }
 
+.projects {
+  display: grid;                    /* Apply grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));  /* Flexible number of columns */
+  gap: 1em;                          /* Adds space between items */
+  padding: 20px;                     /* Adds padding around the grid */
+}
+
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   body {
