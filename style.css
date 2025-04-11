@@ -170,6 +170,130 @@ p {
 }
 
 
+/* Navigation Bar remains the same (from previous styling) */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid #28a745; /* Green underline */
+}
+
+.current {
+  border-bottom: 3px solid #28a745; /* Green underline for the current page */
+}
+
+/* Main container styling for CV */
+body.cv-page main.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;               /* Centers the content */
+  padding: 30px 40px;           /* Padding around the content */
+  background-color: #fff;       /* White background like a piece of paper */
+  border-radius: 10px;          /* Rounded corners for the paper effect */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* Slight shadow to give depth */
+  text-align: left;             /* Left-align text */
+  border: 1px solid #ddd;      /* Light border to define the paper edges */
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body.cv-page main.container a {
+  color: #007bff; /* Change to desired blue color */
+  text-decoration: none; /* Optional: Remove underline from the links */
+}
+
+body.cv-page main.container a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+
+/* Section Styling */
+body.cv-page section {
+  padding: 10px;               /* Reduced space between sections */
+  margin-bottom: 15px;         /* Space between sections */
+  background-color: #fafafa;   /* Light gray background for each section */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);  /* Light shadow */
+}
+
+
+/* Heading Styling */
+body.cv-page h1 {
+  font-size: 3rem;            /* Smaller title font size */
+  color: #222;                 /* Dark title color */
+  margin-bottom: 10px;         /* Space below title */
+  text-align: center;          /* Center align the title */
+}
+
+body.cv-page h2 {
+  color: #333;
+  margin-bottom: 5px;          /* Less space below headings */
+  font-weight: bold;
+  font-size: 1.5rem;            /* Slightly smaller for section titles */
+}
+
+body.cv-page h3 {
+  color: #444;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1rem;            /* Small but not too subtle */
+}
+
+/* Paragraph Styling */
+body.cv-page p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;        /* Less space between paragraphs */
+  color: #555;                /* Lighter text color for body text */
+}
+
+/* Time/date Styling */
+body.cv-page time {
+  display: block;
+  font-style: italic;
+  color: #777;
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+/* List Styling for Skills and Links */
+body.cv-page ul {
+  list-style-type: none;       /* No default bullets */
+  padding-left: 20px;          /* Indentation for list */
+}
+
+body.cv-page ul li {
+  font-size: 1rem;
+  margin-bottom: 5px;          /* Less space between list items */
+}
+
+/* Link Styling */
+body.cv-page a {
+  color: #333;                /* Dark color for links */
+  text-decoration: none;
+}
+
+body.cv-page a:hover {
+  text-decoration: underline;
+  color: #000;
+}
 
 
 /* Mobile responsiveness */
@@ -228,4 +352,53 @@ p {
     grid-template-columns: 1fr;
   }
 
+  body.cv-page main.container {
+    display: block;
+  }
+
+  body.cv-page section {
+    padding: 15px;
+  }
+
+  body.cv-page h1 {
+    font-size: 2.5rem;  /* Smaller title on mobile */
+  }
+
+  body.cv-page h2 {
+    font-size: 1.3rem;  /* Smaller section headings */
+  }
+
+  body.cv-page h3 {
+    font-size: 1rem;    /* Smaller subheading */
+  }
+
+  body.cv-page p,
+  body.cv-page ul li {
+    font-size: 0.9rem;   /* Smaller text for mobile */
+  }
+
+
+  body.cv-page main.container {
+    display: grid;
+    grid-template-columns: 1fr;  /* Stack sections on small screens */
+    gap: 20px;  /* Gap between columns */
+    padding: 20px;
+  }
+
+  body.cv-page h1 {
+    font-size: 2rem;  /* Smaller title on mobile */
+  }
+
+  body.cv-page h2 {
+    font-size: 1.3rem;  /* Smaller section headings */
+  }
+
+  body.cv-page h3 {
+    font-size: 1rem;    /* Smaller subheading */
+  }
+
+  body.cv-page p,
+  body.cv-page ul li {
+    font-size: 0.9rem;   /* Smaller text for mobile */
+  }
 }
