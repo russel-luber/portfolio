@@ -114,6 +114,41 @@ form button:hover {
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));  /* Flexible number of columns */
   gap: 1em;                          /* Adds space between items */
   padding: 20px;                     /* Adds padding around the grid */
+  grid-template-rows: subgrid;
+}
+
+.projects article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: span 3;
+}
+
+.projects h2 {
+  font-size: 1.5em;               /* Larger font for project titles */
+  margin-bottom: 0.5em;           /* Adds space below the title */
+  color: #333;                    /* Dark text color for titles */
+  margin: 0;
+}
+
+.projects p {
+  font-size: 1rem;                /* Standard text size for project descriptions */
+  color: #666;                    /* Lighter text color for descriptions */
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+}
+
+/* Increase the size of <h1> */
+h1 {
+  font-size: 2em;                     /* Makes the h1 significantly larger */
+}
+
+/* Adjust all headings (h1, h2, h3, etc.) for consistency */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;                   /* Adds a smaller line height for headings */
+  text-wrap: balance;                 /* Prevents uneven lines for headings */
 }
 
 
@@ -159,6 +194,10 @@ form button:hover {
   form button {
     width: 100%;
     padding: 10px 20px;
+  }
+  
+  .projects {
+    grid-template-columns: 1fr;
   }
 
 }
