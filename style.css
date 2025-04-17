@@ -31,38 +31,6 @@ body {
   object-fit: cover;   /* Ensures the image covers the area appropriately */
 }
 
-/* Navigation styling (unchanged) */
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-}
-
-nav ul li {
-  margin: 0 10px;
-}
-
-:root {
-  --color-accent: #28a745; /* Adds an accent color under the link when hovered */
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  flex: 1;
-  text-align: center;
-  padding: 0.5em;
-  transition: all 0.1s ease;
-}
-
-nav ul li a:hover {
-  border-bottom: 3px solid var(--color-accent);
-}
-
 .current {
   border-bottom: 3px solid var(--color-accent);  /* Accent color for the current page link */
   padding-bottom: 0.5em;  /* Adjust padding to prevent height increase */
@@ -169,32 +137,6 @@ p {
   font-size: 1rem;
 }
 
-
-/* Navigation Bar remains the same (from previous styling) */
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-}
-
-nav ul li {
-  margin: 0 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  padding: 0.5em;
-}
-
-nav ul li a:hover {
-  border-bottom: 3px solid #28a745; /* Green underline */
-}
-
 .current {
   border-bottom: 3px solid #28a745; /* Green underline for the current page */
 }
@@ -295,6 +237,35 @@ body.cv-page a:hover {
   color: #000;
 }
 
+:root {
+  --color-accent: #28a745;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #f8f8f8;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
+  color: #333;
+  font-weight: bold;
+  transition: border-bottom 0.2s ease;
+}
+
+nav a:hover {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+nav .current {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
@@ -308,21 +279,10 @@ body.cv-page a:hover {
     font-size: 2em;  /* Adjusts the size of headings for small screens */
   }
 
-  nav ul {
-    /* Navbar vertical stacking */
+  nav {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
-    /* 
-    Force navbar to be horizontal
-    justify-content: flex-start;
-    gap: 10px;
-    */
-  }
-
-  nav ul li {
-    margin: 5px 0;        /* Adjusts space between the navbar items */
   }
 
   .container {

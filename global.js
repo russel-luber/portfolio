@@ -16,11 +16,11 @@ const navLinks = $$('nav a');
 const currentLink = navLinks.find(a =>
   a.host === location.host && a.pathname === location.pathname
 );
-// If found, add the `current` class
 currentLink?.classList.add('current');
 
-// Base path depends on environment: "/" for localhost, "/portfolio/" for GitHub Pages
-const BASE = location.hostname === "localhost" ? "/" : "/portfolio/";
+// ✅ Fix: recognize both localhost AND 127.0.0.1 as dev
+const isDev = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+const BASE = isDev ? "/" : "/portfolio/";
 
 // List of pages to include in the nav
 const pages = [
@@ -41,12 +41,10 @@ for (const page of pages) {
   a.href = page.url.startsWith("http") ? page.url : BASE + page.url;
   a.textContent = page.title;
 
-  // Highlight current page
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add("current");
   }
 
-  // Open external links in new tab
   if (a.host !== location.host) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
@@ -54,4 +52,3 @@ for (const page of pages) {
 
   nav.appendChild(a);
 }
-
