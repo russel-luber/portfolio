@@ -18,7 +18,6 @@ const currentLink = navLinks.find(a =>
 );
 currentLink?.classList.add('current');
 
-// ✅ Fix: recognize both localhost AND 127.0.0.1 as dev
 const isDev = location.hostname === "localhost" || location.hostname === "127.0.0.1";
 const BASE = isDev ? "/" : "/portfolio/";
 
