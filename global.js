@@ -10,3 +10,11 @@ console.log('IT’S ALIVE!');
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
+
+// Highlight the link matching the current page
+const navLinks = $$('nav a');
+const currentLink = navLinks.find(a =>
+  a.host === location.host && a.pathname === location.pathname
+);
+// If found, add the `current` class
+currentLink?.classList.add('current');
