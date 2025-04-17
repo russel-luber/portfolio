@@ -289,15 +289,17 @@ body.cv-page ul li {
   margin-bottom: 5px;
 }
 
-body.cv-page a {
-  color: #333;
+.cv-paper a {
+  color: #007bff;
   text-decoration: none;
 }
 
-body.cv-page a:hover {
+.cv-paper a:hover {
+  color: #0056b3; /* optional darker shade for hover */
   text-decoration: underline;
-  color: #000;
 }
+
+
 
 /*
 ========================================
@@ -392,6 +394,11 @@ html[data-theme="dark"] .cv-wrapper {
 
 html[data-theme="dark"] .cv-paper a {
   color: #007bff;
+}
+
+html[data-theme="dark"] .cv-paper a:hover {
+  color: #0056b3; /* optional darker shade for hover */
+  text-decoration: underline;
 }
 
 /*
