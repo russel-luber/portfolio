@@ -1,4 +1,8 @@
-// global.js
+/*
+========================================
+  GLOBAL JS
+========================================
+*/
 console.log('IT’S ALIVE!');
 
 /**
@@ -111,6 +115,3 @@ toggle.addEventListener('click', () => {
     const url = `${form.action}?${query}`;
     location.href = url; // triggers email client
   });
-  
-  
-  
