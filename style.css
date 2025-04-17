@@ -1,4 +1,5 @@
-/* Default body styles */
+
+
 body {
   font-family: 'Arial', san-serif;
   line-height: 1.6;
@@ -10,6 +11,8 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
+
+
 
 /* Center the text on the homepage */
 .home-page main {
@@ -34,6 +37,14 @@ body {
 .current {
   border-bottom: 3px solid var(--color-accent);  /* Accent color for the current page link */
   padding-bottom: 0.5em;  /* Adjust padding to prevent height increase */
+}
+
+:root {
+  --color-accent: #28a745;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Form and content layout */
@@ -237,15 +248,11 @@ body.cv-page a:hover {
   color: #000;
 }
 
-:root {
-  --color-accent: #28a745;
-}
-
 nav {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  background-color: #f8f8f8;
+  background-color: #fff;
   flex-wrap: wrap;
 }
 
@@ -263,6 +270,80 @@ nav a:hover {
 
 nav .current {
   border-bottom: 2px solid var(--color-accent);
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#dark-mode-toggle {
+  font-size: 1.5rem;
+  padding: 0.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === Dark Mode Theme === */
+[data-theme="dark"] {
+  background-color: #111;
+  color: #eee;
+}
+
+[data-theme="dark"] a {
+  color: #9ecbff;
+}
+
+[data-theme="dark"] nav {
+  background-color: #181818;
+}
+
+[data-theme="dark"] main,
+[data-theme="dark"] .container {
+  background-color: #181818;
+  color: #eee;
+}
+
+[data-theme="dark"] nav a {
+  color: #ccc;
+}
+
+[data-theme="dark"] .current {
+  border-bottom-color: #66ff99; /* example accent */
+}
+
+/* Dark mode styling for back-to-top button */
+[data-theme="dark"] .back-to-top {
+  background-color: #222;
+  color: #fff;
+  border-color: #444;
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background-color: #333;
+}
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0.4em;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
+  background-color: #f5f5f5;
 }
 
 

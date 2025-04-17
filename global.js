@@ -51,3 +51,47 @@ for (const page of pages) {
 
   nav.appendChild(a);
 }
+
+// Dark mode toggle
+const toggle = document.createElement('button');
+toggle.textContent = '🌙';
+toggle.setAttribute('aria-label', 'Toggle dark mode');
+toggle.id = 'dark-mode-toggle';
+
+// Add the button to the placeholder div
+document.getElementById('theme-toggle')?.appendChild(toggle);
+
+// Restore theme preference from localStorage
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+    // Use stored preference
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  } else {
+    // No saved preference → check system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  }
+
+toggle.addEventListener('click', () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+  
+    if (isDark) {
+      html.removeAttribute('data-theme');
+      toggle.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      toggle.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+  
+  
