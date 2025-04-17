@@ -1,4 +1,15 @@
+/*
+========================================
+  GLOBAL VARIABLES & RESET
+========================================
+*/
+:root {
+  --color-accent: #28a745;
+}
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Arial', san-serif;
@@ -12,118 +23,11 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
 }
 
-
-
-/* Center the text on the homepage */
-.home-page main {
-  text-align: center; /* This will center the text only on the homepage */
-}
-
-/* Other page styles for non-home pages will not be affected by this */
-.container {
-  width: 100%;
-  max-width: 100ch;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.responsive-image {
-  width: 100%;         /* Makes the image take up 100% of its container */
-  max-width: 600px;    /* Ensures the image doesn't get too large */
-  height: auto;        /* Maintains the aspect ratio */
-  object-fit: cover;   /* Ensures the image covers the area appropriately */
-}
-
-.current {
-  border-bottom: 3px solid var(--color-accent);  /* Accent color for the current page link */
-  padding-bottom: 0.5em;  /* Adjust padding to prevent height increase */
-}
-
-:root {
-  --color-accent: #28a745;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Form and content layout */
-form {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
-  text-align: left;        /* Ensures the form text is left-aligned */
-  max-width: 600px;        /* Prevents the form from stretching too wide */
-  margin: 0 auto;          /* Centers the form horizontally */
-}
-
-.form-group {
-  display: contents;
-  margin-bottom: 15px;     /* Adds space between form elements */
-}
-
-label {
-  display: block;          /* Makes labels block-level elements */
-  margin-bottom: 5px;      /* Adds space below labels */
-  grid-column: 1;
-}
-
-input, textarea {
-  width: 100%;             /* Makes form fields responsive */
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  grid-column: 1 / -1;
-}
-
-form button {
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  grid-column: 1 / -1;
-}
-
-form button:hover {
-  background-color: #555;
-}
-
-.projects {
-  display: grid;                    /* Apply grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));  /* Flexible number of columns */
-  gap: 1em;                          /* Adds space between items */
-  padding: 20px;                     /* Adds padding around the grid */
-  grid-template-rows: subgrid;
-}
-
-.projects article {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-row: span 3;
-}
-
-.projects h2 {
-  font-size: 1.5em;               /* Larger font for project titles */
-  margin-bottom: 0.5em;           /* Adds space below the title */
-  color: #333;                    /* Dark text color for titles */
-  margin: 0;
-}
-
-.projects p {
-  font-size: 1rem;                /* Standard text size for project descriptions */
-  color: #666;                    /* Lighter text color for descriptions */
-}
-
-.projects img {
-  width: 100%;
-  height: auto;
-}
-
-/* Increase the size of <h1> */
+/*
+========================================
+  TYPOGRAPHY
+========================================
+*/
 h1 {
   font-size: 3.5rem;
   line-height: 1.2;
@@ -131,10 +35,10 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;                /* Slightly smaller than h1 */
+  font-size: 2.5rem;
   line-height: 1.3;
   font-weight: bold;
-  margin-bottom: 0.5em;             /* Adds space below h2 */
+  margin-bottom: 0.5em;
 }
 
 h3, h4, h5, h6 {
@@ -142,112 +46,44 @@ h3, h4, h5, h6 {
   line-height: 1.4;
 }
 
-/* Ensure paragraphs have good spacing */
 p {
-  margin-bottom: 1em;                /* Adds space below paragraphs */
+  margin-bottom: 1em;
   font-size: 1rem;
 }
 
 .current {
-  border-bottom: 3px solid #28a745; /* Green underline for the current page */
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.5em;
 }
 
-/* Main container styling for CV */
-body.cv-page main.container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;               /* Centers the content */
-  padding: 30px 40px;           /* Padding around the content */
-  background-color: #fff;       /* White background like a piece of paper */
-  border-radius: 10px;          /* Rounded corners for the paper effect */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);  /* Slight shadow to give depth */
-  text-align: left;             /* Left-align text */
-  border: 1px solid #ddd;      /* Light border to define the paper edges */
-  font-family: 'Helvetica Neue', sans-serif;
+/*
+========================================
+  LAYOUT
+========================================
+*/
+.container {
+  width: 100%;
+  max-width: 100ch;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-body.cv-page main.container a {
-  color: #007bff; /* Change to desired blue color */
-  text-decoration: none; /* Optional: Remove underline from the links */
+.home-page main {
+  text-align: center;
 }
 
-body.cv-page main.container a:hover {
-  text-decoration: underline; /* Optional: Add underline on hover */
+.responsive-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
 }
 
-
-/* Section Styling */
-body.cv-page section {
-  padding: 10px;               /* Reduced space between sections */
-  margin-bottom: 15px;         /* Space between sections */
-  background-color: #fafafa;   /* Light gray background for each section */
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);  /* Light shadow */
-}
-
-
-/* Heading Styling */
-body.cv-page h1 {
-  font-size: 3rem;            /* Smaller title font size */
-  color: #222;                 /* Dark title color */
-  margin-bottom: 10px;         /* Space below title */
-  text-align: center;          /* Center align the title */
-}
-
-body.cv-page h2 {
-  color: #333;
-  margin-bottom: 5px;          /* Less space below headings */
-  font-weight: bold;
-  font-size: 1.5rem;            /* Slightly smaller for section titles */
-}
-
-body.cv-page h3 {
-  color: #444;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 1rem;            /* Small but not too subtle */
-}
-
-/* Paragraph Styling */
-body.cv-page p {
-  font-size: 0.9rem;
-  margin-bottom: 5px;        /* Less space between paragraphs */
-  color: #555;                /* Lighter text color for body text */
-}
-
-/* Time/date Styling */
-body.cv-page time {
-  display: block;
-  font-style: italic;
-  color: #777;
-  margin-top: 5px;
-  font-size: 0.8rem;
-}
-
-/* List Styling for Skills and Links */
-body.cv-page ul {
-  list-style-type: none;       /* No default bullets */
-  padding-left: 20px;          /* Indentation for list */
-}
-
-body.cv-page ul li {
-  font-size: 1rem;
-  margin-bottom: 5px;          /* Less space between list items */
-}
-
-/* Link Styling */
-body.cv-page a {
-  color: #333;                /* Dark color for links */
-  text-decoration: none;
-}
-
-body.cv-page a:hover {
-  text-decoration: underline;
-  color: #000;
-}
-
+/*
+========================================
+  NAVIGATION
+========================================
+*/
 nav {
   display: flex;
   justify-content: space-around;
@@ -286,7 +122,188 @@ nav .current {
   cursor: pointer;
 }
 
-/* === Dark Mode Theme === */
+/*
+========================================
+  FORMS
+========================================
+*/
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: contents;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  grid-column: 1;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  grid-column: 1 / -1;
+}
+
+form button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  grid-column: 1 / -1;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+/*
+========================================
+  PROJECTS
+========================================
+*/
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  padding: 20px;
+  grid-template-rows: subgrid;
+}
+
+.projects article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: span 3;
+}
+
+.projects h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #333;
+  margin: 0;
+}
+
+.projects p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+}
+
+/*
+========================================
+  CV PAGE
+========================================
+*/
+body.cv-page main.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  border: 1px solid #ddd;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body.cv-page main.container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+body.cv-page main.container a:hover {
+  text-decoration: underline;
+}
+
+body.cv-page section {
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body.cv-page h1 {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+body.cv-page h2 {
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+body.cv-page h3 {
+  color: #444;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+body.cv-page p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+body.cv-page time {
+  display: block;
+  font-style: italic;
+  color: #777;
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+body.cv-page ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+body.cv-page ul li {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+body.cv-page a {
+  color: #333;
+  text-decoration: none;
+}
+
+body.cv-page a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/*
+========================================
+  DARK MODE
+========================================
+*/
 [data-theme="dark"] {
   background-color: #111;
   color: #eee;
@@ -296,14 +313,25 @@ nav .current {
   color: #9ecbff;
 }
 
-[data-theme="dark"] nav {
-  background-color: #181818;
+[data-theme="dark"] body,
+[data-theme="dark"] nav,
+[data-theme="dark"] main,
+[data-theme="dark"]:not(.cv-page) .container {
+  background-color: #111;
+  color: #eee;
 }
 
-[data-theme="dark"] main,
-[data-theme="dark"] .container {
-  background-color: #181818;
-  color: #eee;
+[data-theme="dark"].cv-page .container {
+  background-color: #fff;
+  color: #000;
+}
+
+[data-theme="dark"] .container,
+[data-theme="dark"] .projects article,
+[data-theme="dark"] nav,
+[data-theme="dark"] section {
+  border: none;
+  box-shadow: none;
 }
 
 [data-theme="dark"] nav a {
@@ -311,10 +339,9 @@ nav .current {
 }
 
 [data-theme="dark"] .current {
-  border-bottom-color: #66ff99; /* example accent */
+  border-bottom-color: #66ff99;
 }
 
-/* Dark mode styling for back-to-top button */
 [data-theme="dark"] .back-to-top {
   background-color: #222;
   color: #fff;
@@ -325,7 +352,53 @@ nav .current {
   background-color: #333;
 }
 
+body.cv-page[data-theme="dark"] main.container {
+  background-color: #fff !important;
+  color: #333 !important;
+}
 
+body.cv-page[data-theme="dark"] main.container h1,
+body.cv-page[data-theme="dark"] main.container h2,
+body.cv-page[data-theme="dark"] main.container h3,
+body.cv-page[data-theme="dark"] main.container p,
+body.cv-page[data-theme="dark"] main.container ul,
+body.cv-page[data-theme="dark"] main.container li,
+body.cv-page[data-theme="dark"] main.container time {
+  color: #fff !important;
+}
+
+.cv-wrapper {
+  background-color: var(--bg-color);
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cv-paper {
+  background-color: #fff;
+  color: #000;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] .cv-wrapper {
+  background-color: #111;
+}
+
+html[data-theme="dark"] .cv-paper a {
+  color: #007bff;
+}
+
+/*
+========================================
+  BACK TO TOP
+========================================
+*/
 .back-to-top {
   position: fixed;
   bottom: 1rem;
@@ -346,18 +419,20 @@ nav .current {
   background-color: #f5f5f5;
 }
 
-
-
-/* Mobile responsiveness */
+/*
+========================================
+  RESPONSIVE DESIGN
+========================================
+*/
 @media (max-width: 768px) {
   body {
-    font-size: 14px;  /* Smaller font size for mobile screens */
+    font-size: 14px;
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
   }
 
   h1 {
-    font-size: 2em;  /* Adjusts the size of headings for small screens */
+    font-size: 2em;
   }
 
   nav {
@@ -367,11 +442,11 @@ nav .current {
   }
 
   .container {
-    padding: 10px;       /* Less padding on smaller screens */
+    padding: 10px;
   }
 
   form {
-    width: 90%;         /* Adjust form width to 90% on smaller screens */
+    width: 90%;
     padding: 20px;
   }
 
@@ -388,58 +463,32 @@ nav .current {
     width: 100%;
     padding: 10px 20px;
   }
-  
+
   .projects {
     grid-template-columns: 1fr;
   }
 
   body.cv-page main.container {
-    display: block;
-  }
-
-  body.cv-page section {
-    padding: 15px;
-  }
-
-  body.cv-page h1 {
-    font-size: 2.5rem;  /* Smaller title on mobile */
-  }
-
-  body.cv-page h2 {
-    font-size: 1.3rem;  /* Smaller section headings */
-  }
-
-  body.cv-page h3 {
-    font-size: 1rem;    /* Smaller subheading */
-  }
-
-  body.cv-page p,
-  body.cv-page ul li {
-    font-size: 0.9rem;   /* Smaller text for mobile */
-  }
-
-
-  body.cv-page main.container {
     display: grid;
-    grid-template-columns: 1fr;  /* Stack sections on small screens */
-    gap: 20px;  /* Gap between columns */
+    grid-template-columns: 1fr;
+    gap: 20px;
     padding: 20px;
   }
 
   body.cv-page h1 {
-    font-size: 2rem;  /* Smaller title on mobile */
+    font-size: 2rem;
   }
 
   body.cv-page h2 {
-    font-size: 1.3rem;  /* Smaller section headings */
+    font-size: 1.3rem;
   }
 
   body.cv-page h3 {
-    font-size: 1rem;    /* Smaller subheading */
+    font-size: 1rem;
   }
 
   body.cv-page p,
   body.cv-page ul li {
-    font-size: 0.9rem;   /* Smaller text for mobile */
+    font-size: 0.9rem;
   }
 }
