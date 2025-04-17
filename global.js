@@ -54,7 +54,7 @@ for (const page of pages) {
 
 // Dark mode toggle
 const toggle = document.createElement('button');
-toggle.textContent = '🌙';
+toggle.textContent = '🕶';
 toggle.setAttribute('aria-label', 'Toggle dark mode');
 toggle.id = 'dark-mode-toggle';
 
@@ -85,7 +85,7 @@ toggle.addEventListener('click', () => {
   
     if (isDark) {
       html.removeAttribute('data-theme');
-      toggle.textContent = '🌙';
+      toggle.textContent = '🕶';
       localStorage.setItem('theme', 'light');
     } else {
       html.setAttribute('data-theme', 'dark');
@@ -93,5 +93,24 @@ toggle.addEventListener('click', () => {
       localStorage.setItem('theme', 'dark');
     }
   });
+
+  const form = document.querySelector('form');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+  
+    const data = new FormData(form);
+    const params = [];
+  
+    for (let [name, value] of data) {
+      const encoded = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+      params.push(encoded);
+    }
+  
+    const query = params.join('&');
+    const url = `${form.action}?${query}`;
+    location.href = url; // triggers email client
+  });
+  
   
   
