@@ -10,8 +10,6 @@ const loadProjects = async () => {
   if (title) {
     title.textContent = `${projects.length} Projects`;
   }
-  
-
 };
 
 loadProjects();
