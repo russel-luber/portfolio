@@ -209,6 +209,34 @@ form button:hover {
 
 /*
 ========================================
+  PROFILE STATS
+========================================
+*/
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+#profile-stats dt {
+  font-weight: bold;
+  color: #333;
+}
+
+#profile-stats dd {
+  margin: 0;
+  color: #555;
+}
+
+
+/*
+========================================
   CV PAGE
 ========================================
 */
@@ -400,6 +428,13 @@ html[data-theme="dark"] .cv-paper a:hover {
   color: #0056b3; /* optional darker shade for hover */
   text-decoration: underline;
 }
+
+[data-theme="dark"] #profile-stats dl {
+  background-color: #222;
+  color: #eee;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05); /* very subtle light shadow */
+}
+
 
 /*
 ========================================

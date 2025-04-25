@@ -1,4 +1,3 @@
-import { fetchJSON, renderProjects } from './global.js';
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 const loadLatestProjects = async () => {
@@ -8,8 +7,6 @@ const loadLatestProjects = async () => {
     renderProjects(latestProjects, projectsContainer, 'h2');
   };
   
-loadLatestProjects();
-
 const githubData = await fetchGitHubData('russel-luber'); // change to your GitHub username
 
 const profileStats = document.querySelector('#profile-stats');
@@ -24,5 +21,7 @@ if (profileStats) {
     </dl>
   `;
 }
+
+loadLatestProjects();
 
 
