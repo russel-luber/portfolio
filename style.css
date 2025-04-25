@@ -435,6 +435,17 @@ html[data-theme="dark"] .cv-paper a:hover {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05); /* very subtle light shadow */
 }
 
+[data-theme="dark"] .projects h2,
+[data-theme="dark"] .projects p {
+  color: #eee;
+}
+
+[data-theme="dark"] #profile-stats dt,
+[data-theme="dark"] #profile-stats dd {
+  color: #eee;
+}
+
+
 
 /*
 ========================================
