@@ -1,18 +1,21 @@
 [
     {
         "title": "Project 1",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "year": 2025,
+        "image": "../images/proj1_viz.png",
+        "description": "A simple bar chart comparing the percentage of food processing labels in grocery stores."
     },
     {
         "title": "Project 2",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Under construction right now."
     },
     {
         "title": "Project 3",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Probably in a few weeks."
     },
     {
         "title": "Project 4",
