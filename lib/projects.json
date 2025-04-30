@@ -19,47 +19,56 @@
     },
     {
         "title": "Project 4",
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Nice."
     },
     {
         "title": "Project 5",
+        "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Much wow."
     },
     {
         "title": "Project 6",
+        "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Huh?"
     },
     {
         "title": "Project 7",
+        "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "What is this?"
     },
     {
         "title": "Project 8",
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Nothing here yet, huh?"
     },
     {
         "title": "Project 9",
+        "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Yikes. Still nothing?"
     },
     {
         "title": "Project 10",
+        "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "KEKW"
     },
     {
         "title": "Project 11",
+        "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Empty. Tsk tsk."
     },
     {
         "title": "Project 12",
+        "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "description": "Wowowee."
     }
 ]
