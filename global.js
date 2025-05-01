@@ -136,6 +136,7 @@ export async function fetchJSON(url) {
   }
 }
 
+// Projects Page & Home Page Func for Rendering Project Previews
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
 
