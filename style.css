@@ -215,6 +215,12 @@ form button:hover {
   margin-top: 0.25em;
 }
 
+.project-year {
+  font-family: 'Baskerville, serif';
+  font-variant-numeric: oldstyle-nums;
+  font-style: italic;
+  color: #777;
+}
 
 /*
 ========================================
