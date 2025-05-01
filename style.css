@@ -207,6 +207,15 @@ form button:hover {
   height: auto;
 }
 
+.projects time {
+  display: block;
+  font-style: italic;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 0.25em;
+}
+
+
 /*
 ========================================
   PROFILE STATS
