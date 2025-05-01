@@ -216,7 +216,7 @@ form button:hover {
 }
 
 .project-year {
-  font-family: 'Baskerville, serif';
+  font-family: 'Baskerville', serif;
   font-variant-numeric: oldstyle-nums;
   font-style: italic;
   color: #777;
