@@ -147,13 +147,14 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <img src="${project.image}" alt="${project.title}">
       <div>
         <p>${project.description}</p>
-        <time>${project.year}</time>
+        <time datetime="${project.year}">c. ${project.year}</time>
       </div>
     `;
 
     containerElement.appendChild(article);
   }
 }
+
 
 
 export async function fetchGitHubData(username) {
