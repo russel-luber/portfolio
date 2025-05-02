@@ -2,19 +2,22 @@ import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 let query = '';
-let selectedIndex = -1;
+let selectedYear = null;
 
-const updatePieChart = (projectsToShow, projectsAll, container) => {
-  const rolledData = d3.rollups(
-    projectsToShow,
-    v => v.length,
-    d => d.year
-  );
+const updateDisplay = (projectsAll, container, dataForPie) => {
+  const filtered = projectsAll.filter(project => {
+    const matchesQuery = Object.values(project).join('\n').toLowerCase().includes(query);
+    if (selectedYear === null) return matchesQuery;
+    return matchesQuery && project.year === selectedYear;
+  });
 
-  const data = rolledData.map(([year, count]) => ({
-    label: year,
-    value: count,
-  }));
+  renderProjects(filtered, container, 'h2');
+  updatePieChart(filtered, projectsAll, container);
+};
+
+const updatePieChart = (visibleProjects, allProjects, container) => {
+  const rolledData = d3.rollups(visibleProjects, v => v.length, d => d.year);
+  const data = rolledData.map(([year, count]) => ({ label: year, value: count }));
 
   const arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
   const pie = d3.pie().value(d => d.value);
@@ -28,25 +31,12 @@ const updatePieChart = (projectsToShow, projectsAll, container) => {
     svg.append('path')
       .attr('d', arcGenerator(d))
       .attr('fill', colors(i))
-      .attr('class', selectedIndex === i ? 'selected' : null)
+      .attr('class', d.data.label === selectedYear ? 'selected' : null)
       .style('cursor', 'pointer')
       .on('click', () => {
-        selectedIndex = selectedIndex === i ? -1 : i;
-
-        svg.selectAll('path')
-          .attr('class', (_, idx) => (selectedIndex === idx ? 'selected' : null));
-
-        d3.select('.legend')
-          .selectAll('li')
-          .attr('class', (_, idx) => `legend-item${selectedIndex === idx ? ' selected' : ''}`);
-
-        if (selectedIndex === -1) {
-          renderProjects(projectsAll, container, 'h2');
-        } else {
-          const selectedYear = data[selectedIndex].label;
-          const filteredByYear = projectsAll.filter(p => p.year === selectedYear);
-          renderProjects(filteredByYear, container, 'h2');
-        }
+        const clickedYear = d.data.label;
+        selectedYear = (selectedYear === clickedYear) ? null : clickedYear;
+        updateDisplay(allProjects, container, allProjects);
       });
   });
 
@@ -54,57 +44,33 @@ const updatePieChart = (projectsToShow, projectsAll, container) => {
   legend.selectAll('*').remove();
 
   data.forEach((d, i) => {
-    legend
-      .append('li')
+    legend.append('li')
       .attr('style', `--color: ${colors(i)}`)
-      .attr('class', `legend-item${selectedIndex === i ? ' selected' : ''}`)
+      .attr('class', `legend-item${d.label === selectedYear ? ' selected' : ''}`)
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`)
       .on('click', () => {
-        selectedIndex = selectedIndex === i ? -1 : i;
-
-        svg.selectAll('path')
-          .attr('class', (_, idx) => (selectedIndex === idx ? 'selected' : null));
-
-        legend.selectAll('li')
-          .attr('class', (_, idx) => `legend-item${selectedIndex === idx ? ' selected' : ''}`);
-
-        if (selectedIndex === -1) {
-          renderProjects(projectsAll, container, 'h2');
-        } else {
-          const selectedYear = data[selectedIndex].label;
-          const filteredByYear = projectsAll.filter(p => p.year === selectedYear);
-          renderProjects(filteredByYear, container, 'h2');
-        }
+        const clickedYear = d.label;
+        selectedYear = (selectedYear === clickedYear) ? null : clickedYear;
+        updateDisplay(allProjects, container, allProjects);
       });
   });
 };
 
 const loadProjects = async () => {
   const projects = await fetchJSON('../lib/projects.json');
-  const projectsContainer = document.querySelector('.projects');
+  const container = document.querySelector('.projects');
   const searchInput = document.querySelector('.searchBar');
 
-  renderProjects(projects, projectsContainer, 'h2');
-  updatePieChart(projects, projects, projectsContainer);
+  renderProjects(projects, container, 'h2');
+  updatePieChart(projects, projects, container);
 
   const title = document.querySelector('.projects-title');
-  if (title) {
-    title.textContent = `${projects.length} Projects`;
-  }
+  if (title) title.textContent = `${projects.length} Projects`;
 
   searchInput.addEventListener('input', (event) => {
     query = event.target.value.toLowerCase();
-    selectedIndex = -1;
-
-    const filtered = projects.filter(project => {
-      const values = Object.values(project).join('\n').toLowerCase();
-      return values.includes(query);
-    });
-
-    renderProjects(filtered, projectsContainer, 'h2');
-    updatePieChart(filtered, projects, projectsContainer);
+    updateDisplay(projects, container, projects);
   });
 };
 
 loadProjects();
-

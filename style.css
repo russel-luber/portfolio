@@ -260,6 +260,10 @@ form button:hover {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
 }
+.legend-item.selected {
+  font-weight: 600;
+  text-decoration: underline;
+}
 
 
 .chart-and-legend {
@@ -297,6 +301,8 @@ svg:has(path:hover) path:not(:hover) {
 
 .selected:is(path) {
   fill: var(--color);
+  stroke: black;
+  stroke-width: 1.5;
 }
 
 .searchBar {
