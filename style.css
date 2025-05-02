@@ -258,8 +258,9 @@ form button:hover {
   background-color: var(--color);
   display: inline-block;
   aspect-ratio: 1 / 1;
-  border-radius: 0.25em;
+  border-radius: 50%;
 }
+
 
 .chart-and-legend {
   display: flex;
@@ -547,6 +548,11 @@ html[data-theme="dark"] .cv-paper a:hover {
 [data-theme="dark"] #profile-stats dt,
 [data-theme="dark"] #profile-stats dd {
   color: #eee;
+}
+
+[data-theme="dark"] .legend,
+[data-theme="dark"] .legend * {
+  color: #000 !important;
 }
 
 
