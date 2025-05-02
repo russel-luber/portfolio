@@ -228,6 +228,48 @@ form button:hover {
   overflow: visible;
 }
 
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1em;
+  margin-block: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  border-radius: 0.5em;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.legend-item .swatch {
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.25em;
+}
+
+.chart-and-legend {
+  display: flex;
+  align-items: flex-start; /* aligns svg and legend along top */
+  gap: 2em;
+  flex-wrap: wrap; /* good for smaller screens */
+}
+
+.chart-and-legend > svg {
+  flex: 0 0 auto;
+}
+
+.chart-and-legend > .legend {
+  flex: 1;
+}
+
+
 
 /*
 ========================================

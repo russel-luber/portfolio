@@ -13,19 +13,18 @@ const loadProjects = async () => {
   }
 
   // Pie chart logic
-  
+
   // Group projects by year
-  const rolledData = d3.rollups(
+  let rolledData = d3.rollups(
     projects,
     v => v.length,
     d => d.year
   );
 
   // Convert grouped data into array of { label, value }
-  const data = rolledData.map(([year, count]) => ({
-    label: `c. ${year}`,
-    value: count
-  }));
+  let data = rolledData.map(([year, count]) => {
+    return { value: count, label: year };
+  });
 
   // Set up arc and pie generators
   const arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
@@ -45,6 +44,18 @@ const loadProjects = async () => {
       .attr('d', arcGenerator(d))
       .attr('fill', colors(i));
   });
+
+  let legend = d3.select('.legend');
+  legend.selectAll('*').remove();  // clear legend before re-rendering
+
+  data.forEach((d, i) => {
+    legend
+      .append('li')
+      .attr('style', `--color: ${colors(i)}`)
+      .attr('class', 'legend-item')
+      .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  });
+
 };
 
 loadProjects();
