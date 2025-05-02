@@ -228,6 +228,13 @@ form button:hover {
   overflow: visible;
 }
 
+.projects-overview {
+  margin-block: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -256,19 +263,52 @@ form button:hover {
 
 .chart-and-legend {
   display: flex;
-  align-items: flex-start; /* aligns svg and legend along top */
+  align-items: center;
+  justify-content: flex-start;
   gap: 2em;
-  flex-wrap: wrap; /* good for smaller screens */
+  flex-wrap: wrap;
 }
 
 .chart-and-legend > svg {
-  flex: 0 0 auto;
+  flex-shrink: 0;
+  display: block;
 }
 
 .chart-and-legend > .legend {
   flex: 1;
+  align-self: center; 
 }
 
+
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+.searchBar {
+  padding: 0.75em 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.searchBar:focus {
+  outline: 2px solid var(--color-accent);
+}
 
 
 /*
