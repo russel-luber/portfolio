@@ -294,7 +294,9 @@ svg:has(path:hover) path:not(:hover) {
 
 /* .selected {
   --color: oklch(60% 45% 0) !important;
-} */
+} 
+Caused issues with pie chart and legend  
+*/ 
 
 .selected:is(path) {
   stroke: black;
