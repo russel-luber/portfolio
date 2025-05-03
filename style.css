@@ -265,7 +265,6 @@ form button:hover {
   text-decoration: underline;
 }
 
-
 .chart-and-legend {
   display: flex;
   align-items: center;
@@ -284,8 +283,6 @@ form button:hover {
   align-self: center; 
 }
 
-
-
 path {
   transition: 300ms;
   cursor: pointer;
@@ -295,12 +292,11 @@ svg:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
 
-.selected {
+/* .selected {
   --color: oklch(60% 45% 0) !important;
-}
+} */
 
 .selected:is(path) {
-  fill: var(--color);
   stroke: black;
   stroke-width: 1.5;
 }
