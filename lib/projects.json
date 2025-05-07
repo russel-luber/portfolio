@@ -8,8 +8,8 @@
     {
         "title": "Project 2",
         "year": 2025,
-        "image": "/images/proj2_viz_for1_viz.png",
-        "description": "A scatterplot arguing that officers with more complaints often face less accountability. Learn more <a href='https://russel-luber.github.io/opposing-perspectives/' target='_blank'>here.</a>"
+        "image": "../images/proj2_viz_for1_viz.png",
+        "description": "A scatterplot arguing that NYPD officers with more complaints often face less accountability. Learn more <a href='https://russel-luber.github.io/opposing-perspectives/' target='_blank'>here</a>."
     },
     {
         "title": "Project 3",
