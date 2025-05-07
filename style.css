@@ -21,6 +21,8 @@ body {
   box-sizing: border-box;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 /*
@@ -314,6 +316,67 @@ Caused issues with pie chart and legend
 .searchBar:focus {
   outline: 2px solid var(--color-accent);
 }
+
+/*
+========================================
+  META
+========================================
+*/
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.75em 2em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-top: 2em;
+  max-width: 100%;
+}
+
+.stats-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #333;
+  margin-bottom: 1em;
+  align-self: flex-start;
+}
+
+.stats-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* CENTER stat blocks */
+  width: 100%;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #5a5a5a;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
 
 
 /*
