@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="theme-toggle"></div>
+    <main class="container">
+        <h1>Contact Me</h1>
+        <form action="mailto:rluber@ucsd.edu">
+            <div class="form-group">
+                <label for="email">Your Email Address:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Message:</label>
+                <textarea name="body" id="body" rows="4" cols="50" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Send Message</button>
+            </div>
+            
+        </form>
+    </main>
+    <a href="#" class="back-to-top" aria-label="Back to top">🔝</a>
+    <script type="module" src="../global.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Project 1",
+        "year": 2025,
+        "image": "../images/proj1_viz.png",
+        "description": "A simple bar chart comparing the percentage of food processing labels in grocery stores."
+    },
+    {
+        "title": "Project 2",
+        "year": 2025,
+        "image": "../images/proj2_viz_for1_viz.png",
+        "description": "A scatterplot arguing that NYPD officers with more complaints often face less accountability. Learn more <a href='https://russel-luber.github.io/opposing-perspectives/' target='_blank'>here</a>."
+    },
+    {
+        "title": "Project 3",
+        "year": 2025,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Probably in a few weeks."
+    },
+    {
+        "title": "Project 4",
+        "year": 2024,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Nice."
+    },
+    {
+        "title": "Project 5",
+        "year": 2023,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Much wow."
+    },
+    {
+        "title": "Project 6",
+        "year": 2023,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Huh?"
+    },
+    {
+        "title": "Project 7",
+        "year": 2023,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "What is this?"
+    },
+    {
+        "title": "Project 8",
+        "year": 2024,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Nothing here yet, huh?"
+    },
+    {
+        "title": "Project 9",
+        "year": 2023,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Yikes. Still nothing?"
+    },
+    {
+        "title": "Project 10",
+        "year": 2022,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "KEKW"
+    },
+    {
+        "title": "Project 11",
+        "year": 2022,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Empty. Tsk tsk."
+    },
+    {
+        "title": "Project 12",
+        "year": 2022,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Wowowee."
+    }
+]

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russel Luber: Personal Site and Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+    <div id="theme-toggle"></div>
+    <main>
+        <h1>Russel Luber</h1>
+        <p>Audentes Fortuna Iuvat!</p>
+        <p>
+            Here is a random image I found on <a href="https://www.reddit.com/r/HI_Res/comments/satb0o/tr%C3%A6lan%C3%ADpan_at_vagar_island_part_of_faroe_island/" target="_blank">Reddit</a>. 
+        </p>
+
+        <p>Pretty neat, if you ask me. 😊</p>
+
+        <img src="images/some_img.jpg" alt="Vagar Island, part of Faroe Island, Denmark" class="responsive-image">
+
+        <p><strong>Please <em>enjoy</em> each pixel equally</strong>.</p>
+
+        <h2>Latest Projects</h2>
+        <div class="projects">
+            <!-- Latest projects will be inserted here by JavaScript -->
+        </div>
+
+        <div id="profile-stats" class="stats-container">
+            <div class="stats-title">GitHub Profile Stats</div>
+            <div class="stats-flex" id="profile-stats-grid">
+                <!-- Filled in dynamically -->
+            </div>
+        </div>
+        
+    </main>
+    <a href="#" class="back-to-top" aria-label="Back to top">🔝</a>
+    <script type="module" src="./global.js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

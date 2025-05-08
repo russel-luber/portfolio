@@ -1,0 +1,20 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Node modules (if you ever install any locally)
+node_modules/
+
+# Elocuent CSV (generated during build)
+meta/loc.csv
+
+# Log files
+*.log
+
+# Optional: VSCode workspace settings
+.vscode/
+
+# Ignore build artifacts or temp folders (just in case)
+dist/
+build/
+temp/
