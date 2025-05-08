@@ -23,9 +23,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Run Elocuent
         run: |
           npx elocuent -d . -o meta/loc.csv
@@ -49,4 +46,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # or your actual build output directory
+          publish_dir: .  # Or your actual build output directory
