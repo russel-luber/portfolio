@@ -539,6 +539,9 @@ body.cv-page ul li {
   text-decoration: underline;
 }
 
+body.meta-page {
+  padding-bottom: 10rem; /* Add extra breathing room for tooltip */
+}
 
 
 /*

@@ -162,7 +162,7 @@ function renderScatterPlot(data, commits) {
     // Draw X axis
     svg.append('g')
       .attr('transform', `translate(0, ${usableArea.bottom})`)
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale).ticks(d3.timeDay.every(2)));
   
     // Draw Y axis
     svg.append('g')
