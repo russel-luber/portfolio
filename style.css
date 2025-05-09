@@ -437,6 +437,21 @@ body.meta-page {
   margin-right: auto;
 }
 
+.no-selection {
+  padding: 1.25em 1.5em;
+  margin-block: 1em;
+  border: 1px dashed #bbb;
+  border-radius: 0.5em;
+  background-color: #fdfdfd;
+  text-align: center;
+  font-style: italic;
+  color: #444;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+
 
 /*
 ========================================
