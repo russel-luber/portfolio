@@ -104,6 +104,10 @@ function renderScatterPlot(data, commits) {
       width: width - margin.left - margin.right,
       height: height - margin.top - margin.bottom,
     };
+
+    const colorScale = d3.scaleLinear()
+      .domain([0, 6, 12, 18, 24])
+      .range(['#1e3a8a', '#6366f1', '#facc15', '#fb923c', '#1e3a8a']); // night → da
   
     const xScale = d3.scaleTime()
       .domain(d3.extent(commits, d => d.datetime))
@@ -144,7 +148,7 @@ function renderScatterPlot(data, commits) {
       .attr('cx', d => xScale(d.datetime))
       .attr('cy', d => yScale(d.hourFrac))
       .attr('r', 5)
-      .attr('fill', 'steelblue');
+      .attr('fill', d => colorScale(d.hourFrac));
   }
   
 
