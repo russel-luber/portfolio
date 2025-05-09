@@ -27,15 +27,22 @@ jobs:
         run: |
           npx elocuent -d . -o meta/loc.csv
 
-      - name: Commit and Push CSV
+      - name: Commit and Push CSV (only if changed)
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           mkdir -p meta
           git pull
-          git add -f meta/loc.csv
-          git commit -m "Update code statistics" || echo "No changes to commit"
-          git push
+
+          # Only commit if loc.csv changed
+          if ! git diff --quiet -- meta/loc.csv; then
+            echo "meta/loc.csv changed — committing update"
+            git add -f meta/loc.csv
+            git commit -m "Update code statistics"
+            git push
+          else
+            echo "meta/loc.csv unchanged — skipping commit."
+          fi
 
       - name: Build site
         run: |
