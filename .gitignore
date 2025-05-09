@@ -5,9 +5,6 @@ Thumbs.db
 # Node modules (if you ever install any locally)
 node_modules/
 
-# Elocuent CSV (generated during build)
-meta/loc.csv
-
 # Log files
 *.log
 
