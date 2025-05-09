@@ -377,6 +377,47 @@ Caused issues with pie chart and legend
   text-align: center;
 }
 
+dl.info {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  padding: 1em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  font-size: 0.85rem;
+  max-width: 250px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+dl.info[hidden] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+dl.info dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+  color: #444;
+}
+
+dl.info dd {
+  margin: 0 0 0.5em;
+  color: #111;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
 
 /*
 ========================================
