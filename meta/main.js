@@ -141,7 +141,7 @@ function renderCommitInfo(data, commits) {
 
     wrapper.append('div')
         .attr('class', 'stats-title')
-        .text('Summary');
+        .text('📈 Site Summary');
 
     const daysWorked = d3.group(data, d => d.date.toDateString()).size;
 
