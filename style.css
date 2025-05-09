@@ -418,6 +418,25 @@ circle:hover {
   transform: scale(1.5);
 }
 
+body.meta-page {
+  padding-bottom: 15rem; /* Add extra breathing room for tooltip */
+}
+
+.meta-page h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a; /* matches your night color scale */
+  letter-spacing: 0.03em;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.25rem;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /*
 ========================================
@@ -539,9 +558,7 @@ body.cv-page ul li {
   text-decoration: underline;
 }
 
-body.meta-page {
-  padding-bottom: 10rem; /* Add extra breathing room for tooltip */
-}
+
 
 
 /*
