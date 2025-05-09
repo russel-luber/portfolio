@@ -210,16 +210,23 @@ function renderScatterPlot(data, commits) {
       .style('stroke-width', '0.5');
 
     // Plot circles
+    const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+
+    const sortedCommits = d3.sort(commits, d => -d.totalLines);
+
     const dots = svg.append('g').attr('class', 'dots');
-  
+
     dots.selectAll('circle')
-      .data(commits)
+      .data(sortedCommits)
       .join('circle')
       .attr('cx', d => xScale(d.datetime))
       .attr('cy', d => yScale(d.hourFrac))
-      .attr('r', 5)
+      .attr('r', d => rScale(d.totalLines))
       .attr('fill', d => colorScale(d.hourFrac))
+      .style('fill-opacity', 0.7)
       .on('mouseenter', (event, commit) => {
+        d3.select(event.currentTarget).style('fill-opacity', 1);
         renderTooltipContent(commit);
         updateTooltipVisibility(true);
         updateTooltipPosition(event);
@@ -228,6 +235,7 @@ function renderScatterPlot(data, commits) {
         updateTooltipPosition(event);
       })
       .on('mouseleave', () => {
+        d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
       });
   }
