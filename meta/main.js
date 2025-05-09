@@ -88,7 +88,6 @@ function isCommitSelected(commit) {
     return x >= x0 && x <= x1 && y >= y0 && y <= y1;
 }
 
-
 // renderSelectionCount and renderLanguageBreakdown consolidated into this
 function updateBrushedSummary(commits) {
     const brushed = commits.filter(isCommitSelected);
@@ -144,14 +143,12 @@ function renderCommitInfo(data, commits) {
         .text('📈 Site Summary');
 
     const daysWorked = d3.group(data, d => d.date.toDateString()).size;
-
     const workByPeriod = d3.rollups(
         data,
         v => v.length,
         d => getTimeOfDay(new Date(d.datetime).getHours())
     );
     const maxPeriod = d3.greatest(workByPeriod, d => d[1])?.[0] || 'Unknown';
-
     const fileCount = d3.group(data, d => d.file).size;
     const avgFileLength = fileCount > 0 ? Math.round(data.length / fileCount) : 0;
 
@@ -196,11 +193,6 @@ function renderScatterPlot(data, commits) {
       .domain([0, 6, 12, 18, 24])
       .range(['#1e3a8a', '#6366f1', '#facc15', '#fb923c', '#1e3a8a']); // night → da
 
-    const svg = d3.select('#chart')
-      .append('svg')
-      .attr('viewBox', `0 0 ${width} ${height}`)
-      .style('overflow', 'visible');
-    
     xScale = d3.scaleTime()
       .domain(d3.extent(commits, d => d.datetime))
       .range([usableArea.left, usableArea.right])
@@ -210,7 +202,11 @@ function renderScatterPlot(data, commits) {
       .domain([0, 24])
       .range([usableArea.bottom, usableArea.top]);
 
-  
+    const svg = d3.select('#chart')
+      .append('svg')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .style('overflow', 'visible');
+
     // Draw grid lines
     svg.append('g')
       .attr('class', 'gridlines')
@@ -236,7 +232,6 @@ function renderScatterPlot(data, commits) {
 
     // Add vertical color legend aligned with Y-axis
     const defs = svg.append('defs');
-
     const gradient = defs.append('linearGradient')
       .attr('id', 'time-gradient')
       .attr('x1', '0%')
@@ -290,7 +285,7 @@ function renderScatterPlot(data, commits) {
       .on('mousemove', (event) => {
         updateTooltipPosition(event);
       })
-      .on('mouseleave', () => {
+      .on('mouseleave', (event) => {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
       });
@@ -300,11 +295,18 @@ function renderScatterPlot(data, commits) {
             .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
             .on('brush end', function(event) {
                 selection = event.selection;
-                dots.selectAll('circle')
-                    .classed('selected', d => isCommitSelected(d)) 
+                if (!selection) {
+                    dots.selectAll('circle').classed('selected', false);
+                    updateTooltipVisibility(false);
+                } else {
+                    dots.selectAll('circle').classed('selected', d => isCommitSelected(d));
+                }
                 updateBrushedSummary(commits);
             })
     );
+
+    svg.selectAll('.dots, .overlay ~ *').raise();
+
   }
   
 let data = await loadData();

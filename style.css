@@ -451,6 +451,10 @@ body.meta-page {
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+#commit-tooltip {
+  z-index: 999;
+  pointer-events: none;
+}
 
 
 /*
