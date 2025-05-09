@@ -189,9 +189,21 @@ function renderScatterPlot(data, commits) {
       height: height - margin.top - margin.bottom,
     };
 
+    const colorStops = [
+        { hour: 0, color: '#0f172a' },   // Midnight: Deep navy
+        { hour: 3, color: '#1e40af' },   // Pre-dawn blue
+        { hour: 6, color: '#fef08a' },   // Sunrise pale yellow
+        { hour: 12, color: '#fde047' },  // Bright noon yellow
+        { hour: 17, color: '#f97316' },  // Late afternoon orange
+        { hour: 20, color: '#b45309' },  // Sunset burnt orange
+        { hour: 22, color: '#1e3a8a' },  // Evening blue
+        { hour: 24, color: '#0f172a' }   // Midnight again
+    ];
+
     const colorScale = d3.scaleLinear()
-      .domain([0, 6, 12, 18, 24])
-      .range(['#1e3a8a', '#6366f1', '#facc15', '#fb923c', '#1e3a8a']); // night → da
+      .domain(colorStops.map(d => d.hour))
+      .range(colorStops.map(d => d.color))
+      .clamp(true);
 
     xScale = d3.scaleTime()
       .domain(d3.extent(commits, d => d.datetime))
@@ -239,19 +251,12 @@ function renderScatterPlot(data, commits) {
       .attr('x2', '0%')
       .attr('y2', '0%')
 
-    const colorStops = [
-        { hour: 0, color: '#1e3a8a' },
-        { hour: 6, color: '#6366f1' },
-        { hour: 12, color: '#facc15' },
-        { hour: 18, color: '#fb923c' },
-        { hour: 24, color: '#1e3a8a' }
-    ];
-
     colorStops.forEach(({ hour, color }) => {
         gradient.append('stop')
           .attr('offset', `${(hour / 24) * 100}%`)
           .attr('stop-color', color);
     });
+
 
     svg.append('rect')
       .attr('x', usableArea.left - 70)
