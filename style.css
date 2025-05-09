@@ -377,14 +377,6 @@ Caused issues with pie chart and legend
   text-align: center;
 }
 
-#time-legend {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin: 1em auto;
-  flex-wrap: wrap;
-}
-
 
 /*
 ========================================
