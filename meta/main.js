@@ -1,5 +1,8 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+let xScale, yScale;
+let selection = null;
+
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
         ...row,
@@ -77,6 +80,60 @@ function updateTooltipPosition(event) {
     tooltip.style.top = `${event.clientY + 10}px`;
 }
 
+function isCommitSelected(commit) {
+    if (!selection) return false;
+    const [[x0, y0], [x1, y1]] = selection;
+    const x = xScale(commit.datetime);
+    const y = yScale(commit.hourFrac);
+    return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+}
+
+
+// renderSelectionCount and renderLanguageBreakdown consolidated into this
+function updateBrushedSummary(commits) {
+    const brushed = commits.filter(isCommitSelected);
+    const container = d3.select('#brushed-stats');
+    container.selectAll('*').remove();
+
+    if (brushed.length === 0) {
+        container.append('div')
+            .attr('class', 'no-selection')
+            .style('padding', '1em')
+            .style('text-align', 'center')
+            .text('📭 No commits selected.');
+        return;
+    }
+
+    container.append('div')
+        .attr('class', 'stats-title')
+        .text('🔍 Selected Summary');
+
+    const statGrid = container.append('div')
+        .attr('class', 'stats-flex');
+
+    // Commit Count
+    statGrid.append('div')
+        .attr('class', 'stat-block')
+        .html(`
+            <div class="stat-label">COMMITS</div>
+            <div class="stat-value">${brushed.length}</div>
+        `);
+
+    // Language Breakdown
+    const lines = brushed.flatMap(d => d.lines);
+    const breakdown = d3.rollup(lines, v => v.length, d => d.type);
+
+    for (const [lang, count] of breakdown) {
+        const pct = d3.format('.1~%')(count / lines.length);
+        statGrid.append('div')
+            .attr('class', 'stat-block')
+            .html(`
+                <div class="stat-label">${lang.toUpperCase()}</div>
+                <div class="stat-value">${count} (${pct})</div>
+            `);
+    }
+}
+
 function renderCommitInfo(data, commits) {
     const wrapper = d3.select('#stats')
         .append('div')
@@ -139,19 +196,20 @@ function renderScatterPlot(data, commits) {
       .domain([0, 6, 12, 18, 24])
       .range(['#1e3a8a', '#6366f1', '#facc15', '#fb923c', '#1e3a8a']); // night → da
 
-    const xScale = d3.scaleTime()
-      .domain(d3.extent(commits, d => d.datetime))
-      .range([usableArea.left, usableArea.right])
-      .nice();
-  
-    const yScale = d3.scaleLinear()
-      .domain([0, 24])
-      .range([usableArea.bottom, usableArea.top]);
-  
     const svg = d3.select('#chart')
       .append('svg')
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('overflow', 'visible');
+    
+    xScale = d3.scaleTime()
+      .domain(d3.extent(commits, d => d.datetime))
+      .range([usableArea.left, usableArea.right])
+      .nice();
+  
+    yScale = d3.scaleLinear()
+      .domain([0, 24])
+      .range([usableArea.bottom, usableArea.top]);
+
   
     // Draw grid lines
     svg.append('g')
@@ -212,9 +270,7 @@ function renderScatterPlot(data, commits) {
     // Plot circles
     const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
     const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
-
     const sortedCommits = d3.sort(commits, d => -d.totalLines);
-
     const dots = svg.append('g').attr('class', 'dots');
 
     dots.selectAll('circle')
@@ -238,11 +294,21 @@ function renderScatterPlot(data, commits) {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
       });
+
+    svg.call(
+        d3.brush()
+            .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
+            .on('brush end', function(event) {
+                selection = event.selection;
+                dots.selectAll('circle')
+                    .classed('selected', d => isCommitSelected(d)) 
+                updateBrushedSummary(commits);
+            })
+    );
   }
   
-
 let data = await loadData();
 let commits = processCommits(data);
-console.log(commits);
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
+updateBrushedSummary(commits);
