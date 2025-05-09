@@ -47,6 +47,36 @@ function getTimeOfDay(hour) {
     return 'Night';
 }
 
+function renderTooltipContent(commit) {
+    const datetime =commit.datetime;
+
+    const formattedDate = datetime instanceof Date && !isNaN(datetime)
+    ? datetime.toString()
+    : '(Invalid date)';
+    
+    const formattedTime = datetime instanceof Date && !isNaN(datetime)
+    ? datetime.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})
+    : '(Invalid time)';
+
+    document.getElementById('commit-link').href = commit.url;
+    document.getElementById('commit-link').textContent = commit.id;
+    document.getElementById('commit-date').textContent = formattedDate;
+    document.getElementById('commit-time').textContent = formattedTime;
+    document.getElementById('commit-author').textContent = commit.author;
+    document.getElementById('commit-lines').textContent = commit.totalLines;
+}
+
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.style.left = `${event.clientX + 10}px`;
+    tooltip.style.top = `${event.clientY + 10}px`;
+}
+
 function renderCommitInfo(data, commits) {
     const wrapper = d3.select('#stats')
         .append('div')
@@ -188,7 +218,18 @@ function renderScatterPlot(data, commits) {
       .attr('cx', d => xScale(d.datetime))
       .attr('cy', d => yScale(d.hourFrac))
       .attr('r', 5)
-      .attr('fill', d => colorScale(d.hourFrac));
+      .attr('fill', d => colorScale(d.hourFrac))
+      .on('mouseenter', (event, commit) => {
+        renderTooltipContent(commit);
+        updateTooltipVisibility(true);
+        updateTooltipPosition(event);
+      })
+      .on('mousemove', (event) => {
+        updateTooltipPosition(event);
+      })
+      .on('mouseleave', () => {
+        updateTooltipVisibility(false);
+      });
   }
   
 
