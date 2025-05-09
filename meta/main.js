@@ -108,29 +108,7 @@ function renderScatterPlot(data, commits) {
     const colorScale = d3.scaleLinear()
       .domain([0, 6, 12, 18, 24])
       .range(['#1e3a8a', '#6366f1', '#facc15', '#fb923c', '#1e3a8a']); // night → da
-  
-    const timeLabels = [
-        { label: 'Midnight', hour: 0},
-        { label: '6 AM', hour: 6},
-        { label: 'Noon', hour: 12},
-        { label: '6 PM', hour: 18},
-        { label: 'Midnight', hour: 24},
-    ];
 
-    const legendContainer = d3.select('#time-legend');
-    
-    legendContainer.selectAll('div')
-      .data(timeLabels)
-      .join('div')
-      .attr('class', 'legend-item')
-      .style('display', 'flex')
-      .style('align-items', 'center')
-      .style('gap', '0.5em')
-      .html(d =>`
-        <span class="swatch" style="background-color: ${colorScale(d.hour)};"></span>
-        <span>${d.label}</span>
-      `);
-    
     const xScale = d3.scaleTime()
       .domain(d3.extent(commits, d => d.datetime))
       .range([usableArea.left, usableArea.right])
@@ -168,7 +146,39 @@ function renderScatterPlot(data, commits) {
       })
     );
 
-  
+    // Add vertical color legend aligned with Y-axis
+    const defs = svg.append('defs');
+
+    const gradient = defs.append('linearGradient')
+      .attr('id', 'time-gradient')
+      .attr('x1', '0%')
+      .attr('y1', '100%')
+      .attr('x2', '0%')
+      .attr('y2', '0%')
+
+    const colorStops = [
+        { hour: 0, color: '#1e3a8a' },
+        { hour: 6, color: '#6366f1' },
+        { hour: 12, color: '#facc15' },
+        { hour: 18, color: '#fb923c' },
+        { hour: 24, color: '#1e3a8a' }
+    ];
+
+    colorStops.forEach(({ hour, color }) => {
+        gradient.append('stop')
+          .attr('offset', `${(hour / 24) * 100}%`)
+          .attr('stop-color', color);
+    });
+
+    svg.append('rect')
+      .attr('x', usableArea.left - 70)
+      .attr('y', usableArea.top)
+      .attr('width', 10)
+      .attr('height', usableArea.height)
+      .style('fill', 'url(#time-gradient)')
+      .style('stroke', '#ccc')
+      .style('stroke-width', '0.5');
+
     // Plot circles
     const dots = svg.append('g').attr('class', 'dots');
   
