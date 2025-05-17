@@ -19,9 +19,9 @@
     },
     {
         "title": "Project 4",
-        "year": 2024,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nice."
+        "year": 2025,
+        "image": "../images/bike_traffic_screenshot.png",
+        "description": "An interactive visualization of bike traffic in Boston area. Learn more <a href='https://russel-luber.github.io/tracing-pedals/' target='_blank'>here</a>."
     },
     {
         "title": "Project 5",
