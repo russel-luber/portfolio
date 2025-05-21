@@ -6,6 +6,8 @@ let selection = null;
 let commitProgress = 100; // max time shown
 let commitMaxTime;
 let timeScale;
+let filteredCommits = [];
+
 
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
@@ -46,6 +48,22 @@ function processCommits(data) {
         return ret;
     });
 }
+
+function filterCommitsByTime() {
+  filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+}
+
+function updateTimeDisplay() {
+  commitProgress = Number(timeSlider.value);
+  commitMaxTime = timeScale.invert(commitProgress);
+  selectedTime.text(commitMaxTime.toLocaleString());
+
+  filterCommitsByTime();                            // filter first
+  d3.select("#chart").selectAll("*").remove();      // clear old plot
+  renderScatterPlot(data, filteredCommits);         // re-render with filtered commits
+  updateBrushedSummary(filteredCommits);            // update stats panel
+}
+
 
 function getTimeOfDay(hour) {
     if (hour >= 5 && hour < 12) return 'Morning';
@@ -332,5 +350,6 @@ const selectedTime = d3.select("#selectedTime");
 selectedTime.text(commitMaxTime.toLocaleString());
 
 renderCommitInfo(data, commits);
-renderScatterPlot(data, commits);
-updateBrushedSummary(commits);
+filterCommitsByTime();
+renderScatterPlot(data, filteredCommits);
+updateBrushedSummary(filteredCommits);
