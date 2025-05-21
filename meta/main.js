@@ -3,6 +3,10 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 let xScale, yScale;
 let selection = null;
 
+let commitProgress = 100; // max time shown
+let commitMaxTime;
+let timeScale;
+
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
         ...row,
@@ -316,6 +320,18 @@ function renderScatterPlot(data, commits) {
   
 let data = await loadData();
 let commits = processCommits(data);
+
+timeScale = d3.scaleTime()
+  .domain(d3.extent(commits, d => d.datetime))
+  .range([0, 100]);
+
+commitMaxTime = timeScale.invert(commitProgress);
+
+const timeSlider = document.getElementById("timeSlider");
+const selectedTime = d3.select("#selectedTime");
+selectedTime.text(commitMaxTime.toLocaleString());
+
+
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 updateBrushedSummary(commits);
