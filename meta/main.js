@@ -331,7 +331,6 @@ const timeSlider = document.getElementById("timeSlider");
 const selectedTime = d3.select("#selectedTime");
 selectedTime.text(commitMaxTime.toLocaleString());
 
-
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 updateBrushedSummary(commits);
