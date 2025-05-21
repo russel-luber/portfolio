@@ -347,6 +347,8 @@ commitMaxTime = timeScale.invert(commitProgress);
 
 const timeSlider = document.getElementById("timeSlider");
 const selectedTime = d3.select("#selectedTime");
+timeSlider.addEventListener("input", updateTimeDisplay);
+
 selectedTime.text(commitMaxTime.toLocaleString());
 
 renderCommitInfo(data, commits);

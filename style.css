@@ -413,8 +413,8 @@ circle {
   transform-origin: center;
   transform-box: fill-box;
   @starting-style {
-  r: 0;
-}
+    r: 0; 
+  }
 
 }
 
