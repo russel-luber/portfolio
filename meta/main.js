@@ -60,7 +60,7 @@ function updateTimeDisplay() {
 
   filterCommitsByTime();                            // filter first
   d3.select("#chart").selectAll("*").remove();      // clear old plot
-  renderScatterPlot(data, filteredCommits);         // re-render with filtered commits
+  updateScatterPlot(data, filteredCommits);         // re-render with filtered commits
   updateBrushedSummary(filteredCommits);            // update stats panel
 }
 
@@ -197,7 +197,7 @@ function renderCommitInfo(data, commits) {
         `);
 }
 
-function renderScatterPlot(data, commits) {
+function updateScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
@@ -353,5 +353,5 @@ selectedTime.text(commitMaxTime.toLocaleString());
 
 renderCommitInfo(data, commits);
 filterCommitsByTime();
-renderScatterPlot(data, filteredCommits);
+updateScatterPlot(data, filteredCommits);
 updateBrushedSummary(filteredCommits);
