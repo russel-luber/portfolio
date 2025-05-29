@@ -53,7 +53,7 @@ function filterCommitsByTime() {
   filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
 }
 
-function updateTimeDisplay() {
+function onTimeSliderChange() {
   commitProgress = Number(timeSlider.value);
   commitMaxTime = timeScale.invert(commitProgress);
   selectedTime.text(commitMaxTime.toLocaleString());
@@ -345,9 +345,9 @@ timeScale = d3.scaleTime()
 
 commitMaxTime = timeScale.invert(commitProgress);
 
-const timeSlider = document.getElementById("timeSlider");
+const timeSlider = document.getElementById("commit-progress");
 const selectedTime = d3.select("#selectedTime");
-timeSlider.addEventListener("input", updateTimeDisplay);
+timeSlider.addEventListener("input", onTimeSliderChange);
 
 selectedTime.text(commitMaxTime.toLocaleString());
 
