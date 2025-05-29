@@ -12,7 +12,7 @@ let filteredCommits = [];
 let svg;
 
 async function loadData() {
-    const data = await d3.csv('meta/loc.csv', (row) => ({
+    const data = await d3.csv('../meta/loc.csv', (row) => ({
         ...row,
         line: +row.line,
         depth: +row.depth,
