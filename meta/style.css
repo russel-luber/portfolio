@@ -1,0 +1,159 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  max-width: 100ch;
+  padding: 2rem;
+  color: #333;
+}
+
+#scrolly-1 {
+  display: flex;
+  gap: 1rem;
+}
+
+#scatter-story {
+  flex: 1;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  height: 60vh;
+  flex: 1;
+}
+
+.step {
+  border-left: 4px solid #28a745;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  transition: background 0.3s;
+}
+
+.step.is-active {
+  background-color: #f0fdf4;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  z-index: 10;
+  pointer-events: none;
+}
+
+circle {
+  transition: r 0.2s, fill-opacity 0.2s;
+}
+
+circle:hover {
+  r: 10;
+  fill-opacity: 1;
+}
+
+#filter {
+  margin-top: 2rem;
+}
+
+.files dt {
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.files dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.loc {
+  width: 0.5em;
+  height: 1em;
+  border-radius: 1px;
+  background: var(--color, #999);
+}
+
+
+#language-breakdown {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+#language-breakdown dt {
+  font-family: monospace;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+#language-breakdown dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0.25em 0 1em;
+}
+
+.loc {
+  width: 0.75em;
+  height: 0.75em;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* =============== SITE SUMMARY =============== */
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.75em 2em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-top: 2em;
+  max-width: 100%;
+}
+
+.stats-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #333;
+  margin-bottom: 1em;
+  align-self: flex-start;
+}
+
+.stats-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #5a5a5a;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
