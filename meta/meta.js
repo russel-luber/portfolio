@@ -5,16 +5,6 @@ let xScale, yScale, svg, commits, data;
 let timeScale, commitMaxTime;
 const tooltip = d3.select("#commit-tooltip");
 
-// async function loadData() {
-//   const rows = await d3.csv("loc.csv", d => ({
-//     ...d,
-//     line: +d.line,
-//     depth: +d.depth,
-//     datetime: new Date(d.datetime),
-//   }));
-//   return rows;
-// }
-
 async function loadData() {
   const rows = await d3.csv("loc.csv", d => ({
     ...d,
